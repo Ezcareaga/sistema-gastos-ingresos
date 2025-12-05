@@ -30,3 +30,20 @@ Aplicación para gestión de:
 
 Ver capturas en carpeta `/evidencias`
 
+
+## Ventajas de las Herramientas
+
+**SDKMAN:** Gestión múltiples versiones de Java y herramientas JVM. Cambio rápido entre versiones.
+
+**NVM:** Gestión múltiples versiones de Node.js. Diferentes proyectos, diferentes versiones.
+
+**Docker:** Entornos aislados, reproducibles. Misma configuración en cualquier máquina.
+
+## Reproducir Entorno
+1. Instalar SDKMAN, NVM, Docker
+2. `sdk install java 21.0.1-tem`
+3. `sdk install maven`
+4. `nvm install --lts`
+5. `npm install -g @angular/cli`
+6. Clonar repositorio y ejecutar
+
