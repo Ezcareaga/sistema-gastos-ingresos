@@ -1,0 +1,43 @@
+entity Transaction {
+  date LocalDate required
+  amount BigDecimal required
+  type TransactionType required
+  description String maxlength(500)
+  reference String maxlength(100)
+}
+
+entity Category {
+  name String required maxlength(100)
+  description String maxlength(255)
+  type CategoryType required
+}
+
+entity Account {
+  name String required maxlength(100)
+  accountNumber String maxlength(50)
+  balance BigDecimal required
+}
+
+entity Contact {
+  name String required maxlength(200)
+  identification String maxlength(50)
+  email String maxlength(100)
+  phone String maxlength(20)
+}
+
+enum TransactionType {
+  INCOME, EXPENSE
+}
+
+enum CategoryType {
+  INCOME, EXPENSE
+}
+
+relationship ManyToOne {
+  Transaction{category required} to Category
+  Transaction{account required} to Account
+  Transaction{contact} to Contact
+}
+
+paginate all with pagination
+service all with serviceClass
