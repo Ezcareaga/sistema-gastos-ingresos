@@ -3,13 +3,16 @@
 Sistema contable para registro y categorización de transacciones financieras.
 
 ## Tecnologías
+
 - Java 17/21
 - Angular
 - JHipster
 - Docker
 
 ## Descripción
+
 Aplicación para gestión de:
+
 - Transacciones (ingresos/gastos)
 - Categorías contables
 - Cuentas
@@ -18,18 +21,20 @@ Aplicación para gestión de:
 ## Instalaciones Realizadas
 
 ### Backend
+
 - Java 21 (SDKMAN)
 - Maven 3.9.11
 
 ### Frontend
+
 - Node.js LTS (NVM)
 - Angular CLI
 
 ### Contenedores
+
 - Docker Desktop + WSL2
 
 Ver capturas en carpeta `/evidencias`
-
 
 ## Ventajas de las Herramientas
 
@@ -40,6 +45,7 @@ Ver capturas en carpeta `/evidencias`
 **Docker:** Entornos aislados, reproducibles. Misma configuración en cualquier máquina.
 
 ## Reproducir Entorno
+
 1. Instalar SDKMAN, NVM, Docker
 2. `sdk install java 21.0.1-tem`
 3. `sdk install maven`
@@ -47,3 +53,34 @@ Ver capturas en carpeta `/evidencias`
 5. `npm install -g @angular/cli`
 6. Clonar repositorio y ejecutar
 
+## Componentes Adicionales
+
+### Componente Volver Inicio
+
+- Ruta: `/volver`
+- Funcionalidad: Navegación al inicio
+- Archivos: `src/main/webapp/app/volver-inicio/`
+
+### Componente Proceso Principal (Dashboard Financiero)
+
+- Ruta: `/proceso-principal`
+- Funcionalidad: Vista resumen de transacciones, registro rápido
+- Maquetado completo con Bootstrap
+- Archivos: `src/main/webapp/app/proceso-principal/`
+
+## Ejecución del Proyecto
+
+```bash
+# Backend
+./mvnw
+
+# Frontend (otra terminal)
+npm start
+
+# Acceder: http://localhost:9000
+# Usuario: admin / admin
+```
+
+## Evidencias
+
+Ver carpeta `/evidencias` con capturas de instalaciones y componentes.
