@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-
 import { Authority } from 'app/config/authority.constants';
-
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
 import { errorRoute } from './layouts/error/error.route';
 
@@ -15,6 +13,16 @@ const routes: Routes = [
     path: '',
     loadComponent: () => import('./layouts/navbar/navbar.component'),
     outlet: 'navbar',
+  },
+  {
+    path: 'volver',
+    loadComponent: () => import('./volver-inicio/volver-inicio.component').then(m => m.VolverInicioComponent),
+    title: 'Volver al Inicio',
+  },
+  {
+    path: 'proceso-principal',
+    loadComponent: () => import('./proceso-principal/proceso-principal.component').then(m => m.ProcesoPrincipalComponent),
+    title: 'Dashboard Financiero',
   },
   {
     path: 'admin',
@@ -35,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import(`./entities/entity.routes`),
+    loadChildren: () => import('./entities/entity.routes'),
   },
   ...errorRoute,
 ];
