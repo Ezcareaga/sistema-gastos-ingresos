@@ -14,3 +14,19 @@ Aplicación para gestión de:
 - Categorías contables
 - Cuentas
 - Contactos/Terceros
+
+## Instalaciones Realizadas
+
+### Backend
+- Java 21 (SDKMAN)
+- Maven 3.9.11
+
+### Frontend
+- Node.js LTS (NVM)
+- Angular CLI
+
+### Contenedores
+- Docker Desktop + WSL2
+
+Ver capturas en carpeta `/evidencias`
+
