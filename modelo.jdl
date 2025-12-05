@@ -12,7 +12,7 @@ entity Category {
   type CategoryType required
 }
 
-entity Account {
+entity BankAccount {
   name String required maxlength(100)
   accountNumber String maxlength(50)
   balance BigDecimal required
@@ -35,9 +35,9 @@ enum CategoryType {
 
 relationship ManyToOne {
   Transaction{category required} to Category
-  Transaction{account required} to Account
+  Transaction{bankAccount required} to BankAccount
   Transaction{contact} to Contact
 }
 
-paginate all with pagination
-service all with serviceClass
+paginate * with pagination
+service * with serviceClass

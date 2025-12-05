@@ -41,6 +41,10 @@ public class CacheConfiguration {
             createCache(cm, com.contable.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.contable.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, com.contable.domain.Authority.class.getName());
+            createCache(cm, com.contable.domain.Transaction.class.getName());
+            createCache(cm, com.contable.domain.Category.class.getName());
+            createCache(cm, com.contable.domain.BankAccount.class.getName());
+            createCache(cm, com.contable.domain.Contact.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

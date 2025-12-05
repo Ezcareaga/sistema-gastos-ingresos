@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20251205020508"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "CategoryType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "INCOME,EXPENSE"
+    }
+  ],
+  "name": "Category",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
