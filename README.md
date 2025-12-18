@@ -81,6 +81,36 @@ npm start
 # Usuario: admin / admin
 ```
 
+## Integración Backend + Frontend
+
+### Backend Personalizado
+
+**Endpoints:**
+
+- POST /api/transacciones-rapidas - Registrar transacción
+- GET /api/transacciones-rapidas/resumen - Obtener resumen financiero
+
+**Componentes:**
+
+- DTOs: TransaccionRapidaRequestDTO, TransaccionRapidaResponseDTO, ResumenFinancieroDTO
+- Service: TransaccionRapidaService
+- Controller: TransaccionRapidaResource
+
+### Frontend Angular
+
+**Service:** transaccion-rapida.service.ts
+**Componente:** proceso-principal (Dashboard integrado)
+
+**Flujo de integración:**
+
+1. Usuario completa formulario en Dashboard
+2. Service Angular envía request a POST /api/transacciones-rapidas
+3. Backend valida, procesa y guarda en BD
+4. Backend retorna respuesta
+5. Dashboard muestra mensaje y actualiza resumen (GET /resumen)
+
+Ver capturas en `/evidencias` con ejemplos de request/response.
+
 ## Evidencias
 
 Ver carpeta `/evidencias` con capturas de instalaciones y componentes.

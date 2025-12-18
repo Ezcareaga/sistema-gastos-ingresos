@@ -6,13 +6,27 @@
     </div>
   </div>
 
+  <!-- Mensajes -->
+  @if (mensaje) {
+    <div class="alert alert-success alert-dismissible fade show">
+      {{ mensaje }}
+      <button type="button" class="btn-close" (click)="mensaje = ''"></button>
+    </div>
+  }
+  @if (error) {
+    <div class="alert alert-danger alert-dismissible fade show">
+      {{ error }}
+      <button type="button" class="btn-close" (click)="error = ''"></button>
+    </div>
+  }
+
   <!-- Resumen de saldos -->
   <div class="row mb-4">
     <div class="col-md-4">
       <div class="card text-white bg-success">
         <div class="card-body">
           <h5 class="card-title">Total Ingresos</h5>
-          <h3>$125,500.00</h3>
+          <h3>${{ resumen.totalIngresos | number: '1.2-2' }}</h3>
         </div>
       </div>
     </div>
@@ -20,7 +34,7 @@
       <div class="card text-white bg-danger">
         <div class="card-body">
           <h5 class="card-title">Total Gastos</h5>
-          <h3>$78,300.00</h3>
+          <h3>${{ resumen.totalGastos | number: '1.2-2' }}</h3>
         </div>
       </div>
     </div>
@@ -28,7 +42,7 @@
       <div class="card text-white bg-primary">
         <div class="card-body">
           <h5 class="card-title">Balance</h5>
-          <h3>$47,200.00</h3>
+          <h3>${{ resumen.balance | number: '1.2-2' }}</h3>
         </div>
       </div>
     </div>
@@ -36,76 +50,46 @@
 
   <!-- Registro rápido -->
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-header bg-info text-white">
           <h5>Registro Rápido de Transacción</h5>
         </div>
         <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <label class="form-label">Tipo</label>
-              <select class="form-select">
-                <option>Ingreso</option>
-                <option>Gasto</option>
-              </select>
+          <form (ngSubmit)="registrarTransaccion()">
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Tipo</label>
+                <select class="form-select" [(ngModel)]="transaccion.tipo" name="tipo" required>
+                  <option value="INCOME">Ingreso</option>
+                  <option value="EXPENSE">Gasto</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Monto</label>
+                <input type="number" class="form-control" [(ngModel)]="transaccion.monto" name="monto" placeholder="0.00" required />
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Categoría</label>
+                <input type="text" class="form-control" [(ngModel)]="transaccion.categoria" name="categoria" required />
+              </div>
+              <div class="col-md-3 mb-3">
+                <label class="form-label">Cuenta</label>
+                <input type="text" class="form-control" [(ngModel)]="transaccion.cuenta" name="cuenta" required />
+              </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Monto</label>
-              <input type="number" class="form-control" placeholder="0.00" />
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Fecha</label>
+                <input type="date" class="form-control" [(ngModel)]="transaccion.fecha" name="fecha" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea class="form-control" [(ngModel)]="transaccion.descripcion" name="descripcion" rows="2"></textarea>
+              </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Categoría</label>
-              <select class="form-select">
-                <option>Ventas</option>
-                <option>Servicios</option>
-                <option>Sueldos</option>
-                <option>Alquileres</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Descripción</label>
-              <textarea class="form-control" rows="2"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-primary">Registrar Transacción</button>
           </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Últimas transacciones -->
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header bg-secondary text-white">
-          <h5>Últimas Transacciones</h5>
-        </div>
-        <div class="card-body">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Tipo</th>
-                <th>Monto</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>04/12/2024</td>
-                <td><span class="badge bg-success">Ingreso</span></td>
-                <td>$5,000.00</td>
-              </tr>
-              <tr>
-                <td>03/12/2024</td>
-                <td><span class="badge bg-danger">Gasto</span></td>
-                <td>$1,200.00</td>
-              </tr>
-              <tr>
-                <td>02/12/2024</td>
-                <td><span class="badge bg-success">Ingreso</span></td>
-                <td>$8,500.00</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
